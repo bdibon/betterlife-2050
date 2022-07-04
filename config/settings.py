@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-fk96jo8w7)m-a37tka$riyw=2$6n_4o^pd)0a(j2af-a-q7)ib
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third party
+    'rest_framework',
     # Owned
     'accounts',
     'projects'
@@ -128,3 +130,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Set the default user model
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# REST framework settings
+
+REST_FRAMEWORK = {
+    'DEFAUTL_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}

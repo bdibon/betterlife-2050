@@ -1,0 +1,4 @@
+- Better use uuids instead of an ids
+- We might be better off using hyperlinks in relational fields of our objects
+- Should handle pagination on views, especially custom routes?
+-
