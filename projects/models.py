@@ -27,7 +27,7 @@ class Project(models.Model):
 
     title = models.CharField(max_length=255)
     description = models.TextField()
-    goal = models.CharField(max_length=4, choices=GOAL_CHOICES, default=NO_POVERTY)
+    goal = models.CharField(max_length=4, choices=GOAL_CHOICES)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name="owned_projects")
     members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="projects")
     organization = models.ForeignKey("Organization", on_delete=models.PROTECT)
